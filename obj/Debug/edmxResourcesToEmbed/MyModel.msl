@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyFirstDatabaseModelStoreContainer" CdmEntityContainer="MyFirstDatabaseEntities">
+    <EntitySetMapping Name="geo_user1">
+      <EntityTypeMapping TypeName="MyFirstDatabaseModel.geo_user1">
+        <MappingFragment StoreEntitySet="geo_user1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PartitionKey" ColumnName="PartitionKey" />
+          <ScalarProperty Name="RowKey" ColumnName="RowKey" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

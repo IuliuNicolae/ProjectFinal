@@ -29,7 +29,7 @@ namespace ProjectFinal
 
         protected void pulseBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Chart.aspx");
+            Response.Redirect("HeartRateChart.aspx");
         }
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
@@ -39,6 +39,16 @@ namespace ProjectFinal
           errorLabel.Text = "The selected date is " + Calendar1.SelectedDate.ToShortDateString();
             string date = Calendar1.SelectedDate.ToShortDateString();
             Session["Date"] = date;
+        }
+
+        protected void stepsBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Chart.aspx");
+        }
+
+        protected void noteBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Notes.aspx");
         }
     }
 }

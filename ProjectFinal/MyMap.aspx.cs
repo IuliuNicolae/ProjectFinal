@@ -2,6 +2,7 @@
 using Subgurim.Controles.GoogleChartIconMaker;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Web;
@@ -22,7 +23,9 @@ namespace ProjectFinal
 
 
                 string name = Context.User.Identity.Name.ToString();
-                name = "Mattias";
+                //---------DEBUG---------//
+                Debug.WriteLine("username: " + name);
+                //name = "Mattias";
 
 
                 string completeName = name + mydate;

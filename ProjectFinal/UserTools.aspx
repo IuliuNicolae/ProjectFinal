@@ -32,7 +32,13 @@
         <br />
         <br />
         Step counter<br />
-        <asp:Button ID="stepsBtn" runat="server" Text="Steps" />
+        <asp:Button ID="stepsBtn" runat="server" Text="Steps" OnClick="stepsBtn_Click" />
+        <br />
+        <br />
+        <br />
+        <br />
+        Notes<br />
+        <asp:Button ID="noteBtn" runat="server" Text="Notes" OnClick="noteBtn_Click" />
         <br />
         <br />
     

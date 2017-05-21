@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using Microsoft.AspNet.Identity.Owin;
 namespace ProjectFinal
 {
     public partial class _Default : Page
@@ -12,11 +13,18 @@ namespace ProjectFinal
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (User.Identity.IsAuthenticated)
+            {
+                
+                Response.Redirect("~/Account/MyMenu.aspx");
+
+            }
+            else
+            {
+                Response.Redirect("~/Account/Login.aspx");
+            }
         }
 
-        protected void btnMenu_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Account/MyMenu.aspx");
-        }
+        
     }
 }

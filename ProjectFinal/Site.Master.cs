@@ -76,6 +76,7 @@ namespace ProjectFinal
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
+        
     }
 
 }

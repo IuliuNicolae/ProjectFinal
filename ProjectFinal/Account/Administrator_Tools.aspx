@@ -1,13 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Administrator_Tools.aspx.cs" Inherits="ProjectFinal.Account.Administrator_Tools" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master"AutoEventWireup="true" CodeBehind="Administrator_Tools.aspx.cs" Inherits="ProjectFinal.Account.Administrator_Tools" %>
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
+<html>
+
 <body>
-    <form id="form1" runat="server">
+   
     <div>
     
         You are the administrator!!!!<br />
@@ -76,6 +74,7 @@
         <br />
     
     </div>
-    </form>
+   
 </body>
 </html>
+</asp:Content>

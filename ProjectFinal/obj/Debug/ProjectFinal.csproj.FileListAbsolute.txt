@@ -385,3 +385,4 @@ C:\Users\Johan Nilsson\Documents\GitHub\ProjectFinal\ProjectFinal\bin\Microsoft.
 C:\Users\Johan Nilsson\Documents\GitHub\ProjectFinal\ProjectFinal\obj\Debug\ProjectFinal.csprojResolveAssemblyReference.cache
 C:\Users\Johan Nilsson\Documents\GitHub\ProjectFinal\ProjectFinal\obj\Debug\ProjectFinal.dll
 C:\Users\Johan Nilsson\Documents\GitHub\ProjectFinal\ProjectFinal\obj\Debug\ProjectFinal.pdb
+C:\Users\Iuliu\documents\visual studio 2015\Projects\ProjectFinal\ProjectFinal\obj\Debug\ProjectFinal.csprojResolveAssemblyReference.cache

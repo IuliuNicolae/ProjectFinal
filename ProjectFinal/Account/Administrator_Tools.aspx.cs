@@ -13,5 +13,18 @@ namespace ProjectFinal.Account
         {
 
         }
+
+        protected void btnUser_Click(object sender, EventArgs e)
+        {
+            string user = (String)Session["UserName"];
+            labelError.Text = "Your selection has: " + user;
+            Response.Redirect("~/UserTools.aspx");
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["UserName"] = DropDownList1.SelectedValue;
+
+        }
     }
 }

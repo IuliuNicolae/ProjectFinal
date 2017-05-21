@@ -62,6 +62,7 @@ namespace ProjectFinal.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
+                       Session["UserName"] = Email.Text;
                         //  IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         Response.Redirect("MyMenu");
                         break;

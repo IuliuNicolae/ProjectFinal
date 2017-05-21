@@ -14,7 +14,7 @@
     
         <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource2">
             <series>
-                <asp:Series Name="Series1" XValueMember="Date" YValueMembers="DiffSteps" YValuesPerPoint="2">
+                <asp:Series Name="Series1" XValueMember="UserName" YValueMembers="DiffSteps" YValuesPerPoint="2" ChartType="StackedColumn">
                 </asp:Series>
             </series>
             <chartareas>
@@ -22,7 +22,11 @@
                 </asp:ChartArea>
             </chartareas>
         </asp:Chart>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MyFirstDatabaseConnectionString2 %>" SelectCommand="SELECT CAST(Dates AS date) AS Date, UserName, MIN(Steps) AS MinSteps, MAX(Steps) AS MaxSteps,  (MAX(Steps)-MIN(Steps)) AS DiffSteps FROM geo_userSteps AS p GROUP BY UserName, CAST(Dates AS date)"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MyFirstDatabaseConnectionString2 %>" SelectCommand="SELECT CAST(Dates AS date) AS Date, UserName, MIN(Steps) AS MinSteps, MAX(Steps) AS MaxSteps, MAX(Steps) - MIN(Steps) AS DiffSteps FROM geo_userSteps AS p GROUP BY UserName, CAST(Dates AS date) HAVING (UserName = @UserName)">
+            <SelectParameters>
+                <asp:SessionParameter DefaultValue="&quot;&quot;" Name="UserName" SessionField="UserName" />
+            </SelectParameters>
+        </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MyFirstDatabaseConnectionString %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT [Id], [Steps], [UserName], [Dates] FROM [geo_userSteps]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [geo_userSteps] WHERE [Id] = @original_Id AND (([Steps] = @original_Steps) OR ([Steps] IS NULL AND @original_Steps IS NULL)) AND (([UserName] = @original_UserName) OR ([UserName] IS NULL AND @original_UserName IS NULL)) AND (([Dates] = @original_Dates) OR ([Dates] IS NULL AND @original_Dates IS NULL))" InsertCommand="INSERT INTO [geo_userSteps] ([Steps], [UserName], [Dates]) VALUES (@Steps, @UserName, @Dates)" UpdateCommand="UPDATE [geo_userSteps] SET [Steps] = @Steps, [UserName] = @UserName, [Dates] = @Dates WHERE [Id] = @original_Id AND (([Steps] = @original_Steps) OR ([Steps] IS NULL AND @original_Steps IS NULL)) AND (([UserName] = @original_UserName) OR ([UserName] IS NULL AND @original_UserName IS NULL)) AND (([Dates] = @original_Dates) OR ([Dates] IS NULL AND @original_Dates IS NULL))">
             <DeleteParameters>
                 <asp:Parameter Name="original_Id" Type="Int32" />

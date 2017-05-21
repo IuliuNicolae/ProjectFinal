@@ -2,6 +2,7 @@
 using Subgurim.Controles.GoogleChartIconMaker;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Web;
@@ -18,11 +19,13 @@ namespace ProjectFinal
             if (!IsPostBack)
             {
                 mydate = (String)Session["Date"];
-               
 
 
-                string name = Context.User.Identity.Name.ToString();
-                name = "Mattias";
+                string name = (string)Session["UserName"];
+              //  string name = Context.User.Identity.Name.ToString();
+                //---------DEBUG---------//
+                Debug.WriteLine("username: " + name);
+                //name = "Mattias";
 
 
                 string completeName = name + mydate;

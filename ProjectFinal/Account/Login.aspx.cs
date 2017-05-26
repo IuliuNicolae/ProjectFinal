@@ -14,8 +14,7 @@ namespace ProjectFinal.Account
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";
-            // Enable this once you have account confirmation enabled for password reset functionality
-            //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
+            
             OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
             var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
             if (!String.IsNullOrEmpty(returnUrl))
@@ -25,14 +24,7 @@ namespace ProjectFinal.Account
         }
         private void createRole(string rolename)
         {
-            /*
-                         var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
-            IdentityResult result = manager.Create(user, Password.Text);
-            if (result.Succeeded)
-
-             */
+           
 
             ApplicationDbContext dbcontext = new ApplicationDbContext();
             var role = new RoleManager<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>(new Microsoft.AspNet.Identity.EntityFramework.RoleStore<IdentityRole>(dbcontext));
@@ -56,12 +48,11 @@ namespace ProjectFinal.Account
                 // This doen't count login failures towards account lockout
                 // To enable password failures to trigger lockout, change to shouldLockout: true
                 var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
-
+                //does diffrent stuff depending on the reslut
                 switch (result)
                 {
                     case SignInStatus.Success:
-                       Session["UserName"] = Email.Text;
-                        //  IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                       Session["UserName"] = Email.Text;;
                         Response.Redirect("MyMenu");
                         break;
                     case SignInStatus.LockedOut:

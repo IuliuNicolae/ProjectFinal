@@ -15,6 +15,7 @@
                 <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
             </ChartAreas>
         </asp:Chart>
+        <!--adds values to chart-->
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MyFirstDatabaseConnectionString2 %>" SelectCommand="SELECT [Pulse], [dateTime] FROM [geo_heart] WHERE ([UserName] = @UserName)">
             <SelectParameters>
                 <asp:SessionParameter DefaultValue="&quot;&quot;" Name="UserName" SessionField="UserName" Type="String" />

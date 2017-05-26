@@ -7,7 +7,7 @@
 <body>
    
     <div>
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
+        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1"> <!--adds all note to list -->
             <AlternatingItemTemplate>
                 <li style="">Note:
                     <asp:Label ID="NoteLabel" runat="server" Text='<%# Eval("Note") %>' />
